@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrew Huang</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            background-color: #fafafa;
+            color: #333;
+            line-height: 1.6;
+            font-size: 14px;
+            padding: 40px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .name {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .location {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .section-content {
+            margin-left: 0;
+        }
+        
+        a {
+            color: #333;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        
+        a:hover {
+            color: #0066cc;
+            text-decoration: underline;
+        }
+        
+        .gif-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            font-size: 14px;
+            color: #333;
+            transition: color 0.2s ease;
+        }
+        
+        .gif-button:hover {
+            color: #0066cc;
+        }
+        
+        .gif-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .gif-overlay.active {
+            display: flex;
+        }
+        
+        .gif-overlay img {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 10px;
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 15px;
+                font-size: 13px;
+            }
+            
+            .name {
+                font-size: 20px;
+            }
+            
+            .gif-button {
+                top: 0;
+                right: 0;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="name">andrew huang</div>
+        <div class="location">bay area | dc | taiwan</div>
+    </div>
+    
+    <div class="section">
+        <div class="section-content">
+            <a href="https://www.instagram.com/its_anbrew/" target="_blank">instagram</a><br>
+            <a href="https://www.linkedin.com/in/andrewhuang833/" target="_blank">linkedin</a><br>
+            <a href="https://beliapp.co/app/its_anbrew" target="_blank">beli</a><br>
+            <a href="https://github.com/itsanbrew" target="_blank">github</a>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-content">
+            watch my:<br>
+            <a href="https://youtu.be/4-Mr5BZFztI?si=TLSu2VAZ5qg46wJ8" target="_blank">national finals round</a><br>
+            <a href="https://youtu.be/2E0Ds3LWF9o?si=wIaPmwxV3ORaZP0T" target="_blank">post-nats interview</a><br>
+            <a href="https://www.instagram.com/baz.quintet/" target="_blank">old jazz gigs</a>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-content">
+            stuff i'm building:<br>
+            <a href="https://digitalgovernmenthubmockup.vercel.app/" target="_blank">digital government hub mock up</a> --> prototype without ui design<br>
+            when will i see you? --> for long distance couples, prototype soon
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-content">
+            thinking about:<br>
+            vibe-coding<br>
+            viral ugc marketing<br>
+            brainrot<br>
+            restaurant rankings
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-content">
+            &lt;3:<br>
+            <a href="https://www.instagram.com/tblnh__" target="_blank">jenny</a>
+        </div>
+    </div>
+    
+    <button class="gif-button" onclick="toggleGif()">
+        (ghibli)
+    </button>
+    
+    <div class="gif-overlay" onclick="toggleGif()">
+        <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQubmV0ACH5BAAKAAAAIf8LTkVUU0NBUEUyLjADAQAAACH5BAAKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HyFJuPqu2sfqMudd5jgfYC7PVgD7Wn8eaXvKxQysNAAAh+QQACgEAACwAAAAAEAAQAAADMgi63P4wykmrZULUnCnXHggIwyCOx8hSbj6qtrH6jLnXeY4H2Auz1YA+1p/Hml7ysUMrDQAAIfkEAAoCAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HyFJuPqu2sfqMudd5jgfYC7PVgD7Wn8eaXvKxQysNAAAh+QQACgMAACwAAAAAEAAQAAADMgi63P4wykmrZULUnCnXHggIwyCOx8hSbj6qtrH6jLnXeY4H2Auz1YA+1p/Hml7ysUMrDQAAIfkEAAoEAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HyFJuPqu2sfqMudd5jgfYC7PVgD7Wn8eaXvKxQysNAAAh+QQACgUAACwAAAAAEAAQAAADMgi63P4wykmrZULUnCnXHggIwyCOx8hSbj6qtrH6jLnXeY4H2Auz1YA+1p/Hml7ysUMrDQAAIfkEAAoGAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HyFJuPqu2sfqMudd5jgfYC7PVgD7Wn8eaXvKxQysNAAAh+QQACgcAACwAAAAAEAAQAAADMgi63P4wykmrZULUnCnXHggIwyCOx8hSbj6qtrH6jLnXeY4H2Auz1YA+1p/Hml7ysUMrDQAAIfkEAAoIAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HyFJuPqu2sfqMudd5jgfYC7PVgD7Wn8eaXvKxQysNAAAh+QQACgkAACwAAAAAEAAQAAADMgi63P4wykmrZULUnCnXHggIwyCOx8hSbj6qtrH6jLnXeY4H2Auz1YA+1p/Hml7ysUMrDQAAOw==" alt="Nature Gif">
+    </div>
+    
+    <script>
+        // Replace placeholder with actual gif when page loads
+        window.addEventListener('load', function() {
+            // You'll need to replace this with the actual base64 data of your gif
+            // Or host the gif file and use a direct URL
+            const actualGifData = 'data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQubmV0ACH5BAAKAAAAIf8LTkVUU0NBUEUyLjADAQAAACH5BAAKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HyFJuPqu2sfqMudd5jgfYC7PVgD7Wn8eaXvKxQysNAAAh+QQACgEAACwAAAAAEAAQAAADMgi63P4wykmrZULUnCnXHggIwyCOx8hSbj6qtrH6jLnXeY4H2Auz1YA+1p/Hml7ysUMrDQAAIfkEAAoCAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HyFJuPqu2sfqMudd5jgfYC7PVgD7Wn8eaXvKxQysNAAAh+QQACgMAACwAAAAAEAAQAAADMgi63P4wykmrZULUnCnXHggIwyCOx8hSbj6qtrH6jLnXeY4H2Auz1YA+1p/Hml7ysUMrDQAAIfkEAAoEAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HyFJuPqu2sfqMudd5jgfYC7PVgD7Wn8eaXvKxQysNAAAh+QQACgUAACwAAAAAEAAQAAADMgi63P4wykmrZULUnCnXHggIwyCOx8hSbj6qtrH6jLnXeY4H2Auz1YA+1p/Hml7ysUMrDQAAIfkEAAoGAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HyFJuPqu2sfqMudd5jgfYC7PVgD7Wn8eaXvKxQysNAAAh+QQACgcAACwAAAAAEAAQAAADMgi63P4wykmrZULUnCnXHggIwyCOx8hSbj6qtrH6jLnXeY4H2Auz1YA+1p/Hml7ysUMrDQAAIfkEAAoIAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HyFJuPqu2sfqMudd5jgfYC7PVgD7Wn8eaXvKxQysNAAAh+QQACgkAACwAAAAAEAAQAAADMgi63P4wykmrZULUnCnXHggIwyCOx8hSbj6qtrH6jLnXeY4H2Auz1YA+1p/Hml7ysUMrDQAAOw==';
+            
+            // Update overlay image only (no button image to update now)
+            const overlayImg = document.querySelector('.gif-overlay img');
+            if (overlayImg) {
+                overlayImg.src = actualGifData;
+            }
+        });
+        
+        function toggleGif() {
+            const overlay = document.querySelector('.gif-overlay');
+            overlay.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
