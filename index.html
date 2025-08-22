@@ -40,7 +40,7 @@
         }
         
         .location {
-            color: #666;
+            color: #333;
             margin-bottom: 8px;
         }
         
@@ -89,22 +89,67 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
+            z-index: -1;
+            transition: all 0.3s ease;
         }
         
         .gif-overlay.active {
-            display: flex;
+            display: block;
+            z-index: -1;
         }
         
-        .gif-overlay img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 10px;
-            object-fit: contain;
+        .gif-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('./ghibli.gif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(2px);
+        }
+        
+        .gif-overlay::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        body.gif-active {
+            position: relative;
+            color: white;
+        }
+        
+        body.gif-active a {
+            color: white;
+        }
+        
+        body.gif-active a:hover {
+            color: #ccc;
+            text-decoration: underline;
+        }
+        
+        body.gif-active .gif-button {
+            color: white;
+        }
+        
+        body.gif-active .gif-button:hover {
+            color: #ccc;
+        }
+        
+        body.gif-active .location {
+            color: white;
+        }
+        
+        body.gif-active .click-links {
+            color: white;
         }
         
         @media (max-width: 480px) {
@@ -147,8 +192,8 @@
     <div class="section">
         <div class="section-content">
             watch my:<br>
-            <a href="https://youtu.be/4-Mr5BZFztI?si=TLSu2VAZ5qg46wJ8" target="_blank">national finals round</a><br>
-            <a href="https://youtu.be/2E0Ds3LWF9o?si=wIaPmwxV3ORaZP0T" target="_blank">post-nats interview</a><br>
+            <a href="https://youtu.be/4-Mr5BZFztI?si=JBhHDwcuBvtgNTnM&t=711" target="_blank">national finals round</a><br>
+            <a href="https://youtu.be/2E0Ds3LWF9o?si=_vVnWNuajVKUdoMW&t=0" target="_blank">post-nats interview</a><br>
             <a href="https://www.instagram.com/baz.quintet/" target="_blank">old jazz gigs</a>
         </div>
     </div>
@@ -178,14 +223,15 @@
         </div>
     </div>
     
-    <div class="gif-overlay" onclick="toggleGif()">
-        <img src="./ghibli.gif" alt="Ghibli Gif">
-    </div>
+    <div class="gif-overlay" onclick="toggleGif()"></div>
     
     <script>
         function toggleGif() {
             const overlay = document.querySelector('.gif-overlay');
+            const body = document.body;
+            
             overlay.classList.toggle('active');
+            body.classList.toggle('gif-active');
         }
     </script>
 </body>
